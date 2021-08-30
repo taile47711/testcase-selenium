@@ -13,6 +13,10 @@ public class DriverHelper {
         driver.manage().window().maximize();
     }
 
+    public static void quit() {
+        driver.quit();
+    }
+
     public static void navigate(String url) {
         driver.get(url);
     }
