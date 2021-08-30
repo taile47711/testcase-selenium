@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeMethod;
 public class BaseTest {
     @BeforeMethod
     public void setup(){
-        DriverHelper.initDrive();
+        DriverHelper.initDriver();
         DriverHelper.navigate(Constant.URL);
     }
     @AfterMethod

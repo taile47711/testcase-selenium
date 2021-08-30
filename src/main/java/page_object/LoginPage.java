@@ -37,7 +37,7 @@ public class LoginPage extends BasePage {
         getBtnLogin().click();
     }
 
-    public String getWellcomeMessage() {
+    public String getWelcomeMessage() {
         return this.getLblWelcome().getText();
     }
 }
