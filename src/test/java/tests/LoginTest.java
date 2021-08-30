@@ -16,6 +16,8 @@ public class LoginTest extends BaseTest {
 
         LogHelper.info("Enter valid data and click Login button");
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+
+        LogHelper.info("Get welcome message");
         String actual = loginPage.getWelcomeMessage();
 
         LogHelper.info("Verify that user can log into Railway with valid username and password");
