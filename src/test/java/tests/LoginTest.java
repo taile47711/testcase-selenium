@@ -21,6 +21,6 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getWelcomeMessage();
 
         LogHelper.info("Verify that user can log into Railway with valid username and password");
-        Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not display like expected result");
+        Assert.assertEquals(actual, "Welcome to Safe Railway", "Welcome message is not display like expected result");
     }
 }
