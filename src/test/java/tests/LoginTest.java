@@ -17,8 +17,8 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Enter valid data and click Login button");
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
-        String actual = loginPage.getWelcomeMessage();
         LogHelper.info("Compare with expected result");
+        String actual = loginPage.getWelcomeMessage();
 
         Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not display like expected result");
     }
