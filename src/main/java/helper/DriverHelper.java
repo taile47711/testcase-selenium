@@ -24,5 +24,4 @@ public class DriverHelper {
     public static WebDriver getDriver() {
         return driver;
     }
-
 }
