@@ -11,8 +11,8 @@ public class LoginTest extends BaseTest {
     LoginPage loginPage = new LoginPage();
     String errorMsg = "There was a problem with your login and/or errors exist in your form.";
 
-    @Test(description = "User can logging into Railway with valid username and password")
-    public void tc001_UserCanLoggingIntoRailwayWithValidUsernameAndPassword() {
+    @Test(description = "User can login into Railway with valid username and password")
+    public void tc001_UserCanLoginIntoRailwayWithValidUsernameAndPassword() {
         LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
@@ -27,8 +27,8 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not displayed as expected result");
     }
 
-    @Test(description = "User can't logging with blank Username textbox")
-    public void tc02_UserCantLoggingWithBlankUsernameTextbox() {
+    @Test(description = "User can't login with blank Username textbox")
+    public void tc02_UserCantLoginWithBlankUsernameTextbox() {
         LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
@@ -44,12 +44,12 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(actual, errorMsg, "An error message is not displayed as expected result");
     }
 
-    @Test(description = "User cannot logging into Railway with invalid password")
-    public void tc03_UserCannotLoggingIntoRailwayWithInvalidPassword() {
+    @Test(description = "User cannot login into Railway with invalid password")
+    public void tc03_UserCannotLoginIntoRailwayWithInvalidPassword() {
         LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
-        LogHelper.info("Enter valid email and invalid password. Click login button");
+        LogHelper.info("Enter valid email and invalid password. Click Login button");
         loginPage.login(Constant.USERNAME, "!@#$%^&***");
 
         LogHelper.info("Get error message");
@@ -68,7 +68,7 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Click Book ticket tab");
         bookTicketPage.clickBookTicketTab();
 
-        LogHelper.info("Login with valid account and click login button");
+        LogHelper.info("Login with valid account and click Login button");
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         LogHelper.info("Get book ticket title");
