@@ -6,15 +6,15 @@ import org.openqa.selenium.WebElement;
 
 public class BookTicketPage extends BasePage{
     //locator
-    private final By lblBookTicket = By.cssSelector("div [id='content'] h1[align='center']");
+    private final By lblBookTicketTitle = By.cssSelector("div [id='content'] h1[align='center']");
 
     //element
-    private WebElement getLblBookTicket() {
-        return DriverHelper.getDriver().findElement(lblBookTicket);
+    private WebElement getLblBookTicketTitle() {
+        return DriverHelper.getDriver().findElement(lblBookTicketTitle);
     }
 
     //method
     public String getBookTicketTitle() {
-        return this.getLblBookTicket().getText();
+        return this.getLblBookTicketTitle().getText();
     }
 }
