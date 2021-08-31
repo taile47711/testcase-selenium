@@ -22,8 +22,8 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getWelcomeMessage();
 
         LogHelper.info("Verify that user can log into Railway with valid username and password");
-        
-        Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not display like expected result");
+
+        Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not displayed as expected result");
     }
 
     @Test(description = "User can't login with blank Username textbox")
@@ -40,7 +40,7 @@ public class LoginTest extends BaseTest {
 
         LogHelper.info("Verify that user can't login with blank Username textbox");
 
-        Assert.assertEquals(actual, errorMsg, "An error message is not display like expected result");
+        Assert.assertEquals(actual, errorMsg, "An error message is not displayed as expected result");
     }
 
     @Test(description = "User cannot log into Railway with invalid password")
@@ -57,6 +57,6 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Verify that user cannot log into Railway with invalid password");
 
         Assert.assertEquals(actual, "Invalid username or password. Please try again.",
-                "An error message is not display like expected result");
+                "An error message is not displayed as expected result");
     }
 }
