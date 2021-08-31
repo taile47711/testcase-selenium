@@ -11,9 +11,9 @@ public class LoginTest extends BaseTest {
     LoginPage loginPage = new LoginPage();
     String errorMsg = "There was a problem with your login and/or errors exist in your form.";
 
-    @Test(description = "User can log into Railway with valid username and password")
-    public void tc001_UserCanLogIntoRailwayWithValidUsernameAndPassword() {
-        LogHelper.info("Click tab login");
+    @Test(description = "User can logging into Railway with valid username and password")
+    public void tc001_UserCanLoggingIntoRailwayWithValidUsernameAndPassword() {
+        LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
         LogHelper.info("Enter valid data and click Login button");
@@ -27,9 +27,9 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not displayed as expected result");
     }
 
-    @Test(description = "User can't login with blank Username textbox")
-    public void tc02_UserCantLoginWithBlankUsernameTextbox() {
-        LogHelper.info("Click tab login");
+    @Test(description = "User can't logging with blank Username textbox")
+    public void tc02_UserCantLoggingWithBlankUsernameTextbox() {
+        LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
         LogHelper.info("Doesn't type any words into Username textbox but enter valid information into Password textbox" +
@@ -44,9 +44,9 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(actual, errorMsg, "An error message is not displayed as expected result");
     }
 
-    @Test(description = "User cannot log into Railway with invalid password")
-    public void tc03_UserCannotLogIntoRailwayWithInvalidPassword() {
-        LogHelper.info("Click tab login");
+    @Test(description = "User cannot logging into Railway with invalid password")
+    public void tc03_UserCannotLoggingIntoRailwayWithInvalidPassword() {
+        LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
         LogHelper.info("Enter valid email and invalid password. Click login button");
