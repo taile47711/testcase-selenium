@@ -11,6 +11,7 @@ public class LoginPage extends BasePage {
     private final By txtPassword = By.id("password");
     private final By btnLogin = By.cssSelector("input[type='submit']");
     private final By lblWelcomeMessage = By.cssSelector("div#content>h1[align='center']");
+    private final By lblErrorMessage = By.cssSelector("div#content>p[class='message error LoginForm']");
 
     //element
     private WebElement getTxtUsername() {
@@ -25,8 +26,12 @@ public class LoginPage extends BasePage {
         return DriverHelper.getDriver().findElement(btnLogin);
     }
 
-    private WebElement getLblWelcome() {
+    private WebElement getLblWelcomeMessage() {
         return DriverHelper.getDriver().findElement(lblWelcomeMessage);
+    }
+
+    private WebElement getLblErrorMessage() {
+        return DriverHelper.getDriver().findElement(lblErrorMessage);
     }
 
     //method
@@ -38,6 +43,10 @@ public class LoginPage extends BasePage {
     }
 
     public String getWelcomeMessage() {
-        return this.getLblWelcome().getText();
+        return this.getLblWelcomeMessage().getText();
+    }
+
+    public String getErrorMessage() {
+        return this.getLblErrorMessage().getText();
     }
 }
