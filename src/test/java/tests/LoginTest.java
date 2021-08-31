@@ -31,15 +31,14 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Click tab login");
         loginPage.clickLoginTab();
 
-        LogHelper.info("Doesn't type any words into Username textbox but enter valid information into Password textbox" +
-                " and click Login button");
+        LogHelper.info("Login with empty username and click Login button");
         loginPage.login("", Constant.PASSWORD);
 
         LogHelper.info("Get error message");
         String actual = loginPage.getErrorMessage();
 
         LogHelper.info("Verify that user can't login with blank Username textbox");
-
+      
         Assert.assertEquals(actual, errorMsg, "An error message is not displayed as expected result");
     }
 
