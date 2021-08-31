@@ -4,6 +4,7 @@ import common.Constant;
 import helper.LogHelper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import page_object.BookTicketPage;
 import page_object.LoginPage;
 
 public class LoginTest extends BaseTest {
@@ -22,7 +23,8 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getWelcomeMessage();
 
         LogHelper.info("Verify that user can log into Railway with valid username and password");
-        Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not display like expected result");
+
+        Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not displayed as expected result");
     }
 
     @Test(description = "User can't login with blank Username textbox")
@@ -38,7 +40,42 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getErrorMessage();
 
         LogHelper.info("Verify that user can't login with blank Username textbox");
-        Assert.assertEquals(actual, errorMsg, "An error message is not display like expected result");
 
+        Assert.assertEquals(actual, errorMsg, "An error message is not displayed as expected result");
+    }
+
+    @Test(description = "User cannot log into Railway with invalid password")
+    public void tc03_UserCannotLogIntoRailwayWithInvalidPassword() {
+        LogHelper.info("Click tab login");
+        loginPage.clickLoginTab();
+
+        LogHelper.info("Enter valid email and invalid password. Click login button");
+        loginPage.login(Constant.USERNAME, "!@#$%^&***");
+
+        LogHelper.info("Get error message");
+        String actual = loginPage.getErrorMessage();
+
+        LogHelper.info("Verify that user cannot log into Railway with invalid password");
+
+        Assert.assertEquals(actual, "Invalid username or password. Please try again.",
+                "An error message is not displayed as expected result");
+    }
+
+    @Test(description = "User is redirected to Book ticket page after logging in")
+    public void tc04_UserIsRedirectedToBookPageAfterLoggingIn() {
+        BookTicketPage bookTicketPage = new BookTicketPage();
+
+        LogHelper.info("Click Book ticket tab");
+        bookTicketPage.clickBookTicketTab();
+
+        LogHelper.info("Login with valid account and click login button");
+        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+
+        LogHelper.info("Get book ticket title");
+        String actual = bookTicketPage.getBookTicketTitle();
+
+        LogHelper.info("Verify that user is redirected to Book ticket page after logging in");
+
+        Assert.assertEquals(actual, "Book ticket", "Navigate incorrectly to Book ticket page");
     }
 }
