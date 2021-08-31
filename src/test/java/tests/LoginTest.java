@@ -38,6 +38,5 @@ public class LoginTest extends BaseTest {
 
         LogHelper.info("Verify that user can't login with blank Username textbox");
         Assert.assertEquals(actual, errorMsg, "An error message is not display like expected result");
-
     }
 }
