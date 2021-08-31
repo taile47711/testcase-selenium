@@ -61,7 +61,7 @@ public class LoginTest extends BaseTest {
                 "An error message is not displayed as expected result");
     }
 
-    @Test(description = "User is redirected to Book ticket page after logging in")
+    @Test(description = "User is redirected to Book Ticket page after logging in")
     public void tc04_UserIsRedirectedToBookPageAfterLoggingIn() {
         BookTicketPage bookTicketPage = new BookTicketPage();
 
@@ -74,8 +74,7 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Get book ticket title");
         String actual = bookTicketPage.getBookTicketTitle();
 
-        LogHelper.info("Verify that user is redirected to Book ticket page after logging in");
-
+        LogHelper.info("Verify that user is redirected to Book Ticket page after logging in");
         Assert.assertEquals(actual, "Book ticket", "Navigate incorrectly to Book ticket page");
     }
 }
