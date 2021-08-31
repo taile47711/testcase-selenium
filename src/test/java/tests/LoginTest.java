@@ -2,7 +2,6 @@ package tests;
 
 import common.Constant;
 import helper.LogHelper;
-import org.slf4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page_object.LoginPage;
