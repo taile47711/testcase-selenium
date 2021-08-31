@@ -2,7 +2,6 @@ package tests;
 
 import common.Constant;
 import helper.LogHelper;
-import org.slf4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page_object.LoginPage;
@@ -40,6 +39,21 @@ public class LoginTest extends BaseTest {
 
         LogHelper.info("Verify that user can't login with blank Username textbox");
         Assert.assertEquals(actual, errorMsg, "An error message is not display like expected result");
+    }
 
+    @Test(description = "User cannot log into Railway with invalid password")
+    public void tc03_UserCannotLogIntoRailwayWithInvalidPassword(){
+        LogHelper.info("Click tab login");
+        loginPage.clickLoginTab();
+
+        LogHelper.info("Enter valid email and invalid password. Click login button");
+        loginPage.login(Constant.USERNAME, "!@#$%^&***");
+
+        LogHelper.info("Get error message");
+        String actual = loginPage.getErrorMessage();
+
+        LogHelper.info("Verify that user cannot log into Railway with invalid password");
+        Assert.assertEquals(actual, "Invalid username or password. Please try again.",
+                "An error message is not display like expected result");
     }
 }
