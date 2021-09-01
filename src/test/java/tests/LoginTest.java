@@ -79,8 +79,8 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(description = "System shows message when user enters wrong password several times")
-    public void tc05_SystemShowMessageWhenUserEntersWrongPasswordSeveralTimes() {
-        LogHelper.info("Click tab login");
+    public void tc05_SystemShowsMessageWhenUserEntersWrongPasswordSeveralTimes() {
+        LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
         LogHelper.info("Enter valid data into Username textbox except Password textbox and click login button. Repeat 3 times");
