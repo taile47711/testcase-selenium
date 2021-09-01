@@ -75,7 +75,7 @@ public class LoginTest extends BaseTest {
         String actual = bookTicketPage.getBookTicketTitle();
 
         LogHelper.info("Verify that user is redirected to Book Ticket page after logging in");
-        
+
         Assert.assertEquals(actual, "Book ticket", "Navigate incorrectly to Book ticket page");
     }
 
@@ -83,10 +83,9 @@ public class LoginTest extends BaseTest {
     public void tc05_SystemShowsMessageWhenUserEntersWrongPasswordSeveralTimes() {
         LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
+
         LogHelper.info("Enter valid data into Username textbox except Password textbox and click login button. Repeat 3 times");
-        for (int i = 0; i < 4; i++) {
-            loginPage.login(Constant.USERNAME, "");
-        }
+        loginPage.loginMultipleTime(4,Constant.USERNAME,"");
 
         LogHelper.info("Get error message");
         String actual = loginPage.getErrorMessage();
