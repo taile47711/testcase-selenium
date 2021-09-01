@@ -77,4 +77,23 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Verify that user is redirected to Book Ticket page after logging in");
         Assert.assertEquals(actual, "Book ticket", "Navigate incorrectly to Book ticket page");
     }
+
+    @Test(description = "System shows message when user enters wrong password several times")
+    public void tc05_SystemShowMessageWhenUserEntersWrongPasswordSeveralTimes() {
+        LogHelper.info("Click tab login");
+        loginPage.clickLoginTab();
+
+        LogHelper.info("Enter valid data into Username textbox except Password textbox and click login button. Repeat 3 times");
+        for (int i = 0; i < 4; i++) {
+            loginPage.login(Constant.USERNAME, "");
+        }
+
+        LogHelper.info("Get error message");
+        String actual = loginPage.getErrorMessage();
+        String expected = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
+
+        LogHelper.info("Verify that system shows message when user enters wrong password several times");
+
+        Assert.assertEquals(actual, expected, "An error message is not display like expected result");
+    }
 }
