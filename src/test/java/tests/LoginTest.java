@@ -75,6 +75,7 @@ public class LoginTest extends BaseTest {
         String actual = bookTicketPage.getBookTicketTitle();
 
         LogHelper.info("Verify that user is redirected to Book Ticket page after logging in");
+        
         Assert.assertEquals(actual, "Book ticket", "Navigate incorrectly to Book ticket page");
     }
 
