@@ -23,7 +23,6 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getWelcomeMessage();
 
         LogHelper.info("Verify that user can log into Railway with valid username and password");
-
         Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not displayed as expected result");
     }
 
@@ -40,7 +39,6 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getErrorMessage();
 
         LogHelper.info("Verify that user can't login with blank Username textbox");
-
         Assert.assertEquals(actual, errorMsg, "An error message is not displayed as expected result");
     }
 
@@ -56,7 +54,6 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getErrorMessage();
 
         LogHelper.info("Verify that user cannot log into Railway with invalid password");
-
         Assert.assertEquals(actual, "Invalid username or password. Please try again.",
                 "An error message is not displayed as expected result");
     }
@@ -75,7 +72,6 @@ public class LoginTest extends BaseTest {
         String actual = bookTicketPage.getBookTicketTitle();
 
         LogHelper.info("Verify that user is redirected to Book Ticket page after logging in");
-
         Assert.assertEquals(actual, "Book ticket", "Navigate incorrectly to Book ticket page");
     }
 
@@ -92,7 +88,6 @@ public class LoginTest extends BaseTest {
         String expected = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
 
         LogHelper.info("Verify that system shows message when user enters wrong password several times");
-
         Assert.assertEquals(actual, expected, "An error message is not display like expected result");
     }
 }
