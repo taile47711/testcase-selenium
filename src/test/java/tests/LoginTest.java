@@ -87,7 +87,7 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Enter valid data into Username textbox except Password textbox and click login button. Repeat 3 times");
         loginPage.loginMultipleTime(4,Constant.USERNAME,"");
 
-        LogHelper.info("Get error message");    
+        LogHelper.info("Get error message");
         String actual = loginPage.getErrorMessage();
         String expected = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
 
