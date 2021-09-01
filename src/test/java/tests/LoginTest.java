@@ -81,7 +81,7 @@ public class LoginTest extends BaseTest {
         loginPage.clickLoginTab();
 
         LogHelper.info("Enter valid data into Username textbox except Password textbox and click login button. Repeat 3 times");
-        loginPage.loginMultipleTime(4,Constant.USERNAME,"");
+        loginPage.loginMultipleTimes(4, Constant.USERNAME, "");
 
         LogHelper.info("Get error message");
         String actual = loginPage.getErrorMessage();
