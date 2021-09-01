@@ -52,6 +52,7 @@ public class LoginPage extends BasePage {
 
     public void loginMultipleTimes(int numberOfTimes, String username, String password) {
         for (int i = 0; i < numberOfTimes; i++) {
+            getTxtUsername().clear();
             login(username, password);
         }
     }
