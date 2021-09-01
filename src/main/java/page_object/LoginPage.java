@@ -50,9 +50,9 @@ public class LoginPage extends BasePage {
         return this.getLblErrorMessage().getText();
     }
 
-    public void loginMultipleTime(int n, String username, String pasword) {
-        for (int i = 0; i < n; i++) {
-            login(username, pasword);
+    public void loginMultipleTime(int loop, String username, String password) {
+        for (int i = 0; i < loop; i++) {
+            login(username, password);
         }
     }
 }
