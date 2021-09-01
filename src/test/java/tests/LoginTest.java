@@ -88,6 +88,6 @@ public class LoginTest extends BaseTest {
         String expected = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
 
         LogHelper.info("Verify that system shows message when user enters wrong password several times");
-        Assert.assertEquals(actual, expected, "An error message is not display like expected result");
+        Assert.assertEquals(actual, expected, "An error message is not displayed as expected result");
     }
 }
