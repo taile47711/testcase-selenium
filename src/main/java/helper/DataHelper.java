@@ -1,7 +1,6 @@
 package helper;
 
 import com.github.javafaker.Faker;
-import org.apache.commons.lang3.RandomStringUtils;
 
 public class DataHelper {
     private static final Faker faker = new Faker();
