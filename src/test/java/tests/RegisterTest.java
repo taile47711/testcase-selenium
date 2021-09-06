@@ -9,8 +9,6 @@ import page_object.RegisterPage;
 
 public class RegisterTest extends BaseTest {
     RegisterPage registerPage = new RegisterPage();
-    String email = "";
-    String pid = "";
 
     @Test(description = "User can create new account")
     public void tc07_UserCanCreateNewAccount() {
@@ -18,8 +16,8 @@ public class RegisterTest extends BaseTest {
         registerPage.clickRegisterTab();
 
         LogHelper.info("Enter valid information into all fields and click Register button");
-        email = DataHelper.getRandomEmail();
-        pid = DataHelper.getRandomNumberic(9);
+        String email = DataHelper.getRandomEmail();
+        String pid = DataHelper.getRandomNumberic(9);
         registerPage.register(email, Constant.PASSWORD, Constant.PASSWORD, pid);
 
         LogHelper.info("Get success message in register page after click Register button");
