@@ -1,6 +1,7 @@
 package page_object;
 
 import helper.DriverHelper;
+import helper.ElementHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -11,6 +12,8 @@ public class BasePage extends DriverHelper {
     private By tabBookTicket = By.cssSelector("li a[href='/Page/BookTicketPage.cshtml']");
     private By tabTimetable = By.cssSelector("li a[href*='TrainTimeListPage.cshtml']");
     private By tabTicketPrice = By.cssSelector("li a[href*='/Page/TrainPriceListPage.cshtml']");
+    private By tabLogout = By.cssSelector("a[href$='Logout']");
+    private By tabContact = By.cssSelector("a[href*='Contact']");
 
     //element
     private WebElement getTabLogin() {
@@ -33,6 +36,15 @@ public class BasePage extends DriverHelper {
         return DriverHelper.getDriver().findElement(tabTicketPrice);
     }
 
+    private WebElement getTabLogout() {
+        return DriverHelper.getDriver().findElement(tabLogout);
+    }
+
+    private WebElement getTabContact() {
+        return DriverHelper.getDriver().findElement(tabContact);
+    }
+
+
     //method
     public void clickLoginTab() {
         getTabLogin().click();
@@ -52,5 +64,21 @@ public class BasePage extends DriverHelper {
 
     public void clickTicketPriceTab() {
         getTabTicketPrice().click();
+    }
+
+    public void clickLogoutTab() {
+        getTabLogout().click();
+    }
+
+    public void clickContactTab() {
+        getTabContact().click();
+    }
+
+    public boolean isLoginTabDisplayed() {
+        return ElementHelper.isElementDisplayed(this.getTabLogin());
+    }
+
+    public boolean isLogoutTabDisplayed() {
+        return ElementHelper.isElementDisplayed(this.getTabLogout());
     }
 }
