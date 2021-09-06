@@ -10,11 +10,11 @@ public class DataHelper {
         return faker.letterify("??????????@gmail.com");
     }
 
-    public static String getRandomAlphanumeric(int number) {
-        return RandomStringUtils.randomAlphanumeric(number);
+    public static String getRandomAlphanumeric(int min, int max) {
+        return faker.internet().password(min, max);
     }
 
     public static String getRandomNumberic(int number) {
-        return RandomStringUtils.randomNumeric(number);
+        return faker.number().digits(number);
     }
 }
