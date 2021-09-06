@@ -120,7 +120,7 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Verify that Login tab is displayed after logging in successfully.");
         Assert.assertTrue(loginTabAppearance, "Login tab is not displayed as expected");
 
-        LogHelper.info("Get text of hyperlink in home page");
+        LogHelper.info("Get welcome content at the top of home page");
         String actual = homePage.getWelcomeContentAtTop();
         String expected = "Welcome to Safe Railway";
 
