@@ -20,7 +20,7 @@ public class RegisterTest extends BaseTest {
         LogHelper.info("Enter valid information into all fields and click Register button");
         email = DataHelper.getRandomEmail();
         pid = DataHelper.getRandomPID(9);
-        registerPage.register(email, Constant.USERNAME, Constant.USERNAME, pid);
+        registerPage.register(email, Constant.PASSWORD, Constant.PASSWORD, pid);
 
         LogHelper.info("Get success message in register page after click Register button");
         String actual = registerPage.getSuccessMessage();
