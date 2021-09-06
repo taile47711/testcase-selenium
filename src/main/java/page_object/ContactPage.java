@@ -1,2 +1,4 @@
-package page_object;public class ContactPage {
+package page_object;
+
+public class ContactPage extends BasePage{
 }
