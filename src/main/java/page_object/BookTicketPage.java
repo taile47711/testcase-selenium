@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class BookTicketPage extends BasePage{
     //locator
-    private final By lblBookTicketTitle = By.cssSelector("div [id='content'] h1[align='center']");
+    private final By lblBookTicketTitle = By.cssSelector("div[id='page'] div[id='content'] h1[align='center']");
 
     //element
     private WebElement getLblBookTicketTitle() {

@@ -23,7 +23,6 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getWelcomeMessage();
 
         LogHelper.info("Verify that user can login into Railway with valid username and password");
-
         Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not displayed as expected result");
     }
 
@@ -39,7 +38,6 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getErrorMessage();
 
         LogHelper.info("Verify that user can't login with blank Username textbox");
-
         Assert.assertEquals(actual, errorMsg, "An error message is not displayed as expected result");
     }
 
@@ -55,7 +53,6 @@ public class LoginTest extends BaseTest {
         String actual = loginPage.getErrorMessage();
 
         LogHelper.info("Verify that user cannot login into Railway with invalid password");
-
         Assert.assertEquals(actual, "Invalid username or password. Please try again.",
                 "An error message is not displayed as expected result");
     }
@@ -74,7 +71,21 @@ public class LoginTest extends BaseTest {
         String actual = bookTicketPage.getBookTicketTitle();
 
         LogHelper.info("Verify that user is redirected to Book Ticket page after logging in");
-      
         Assert.assertEquals(actual, "Book ticket", "Navigate incorrectly to Book ticket page");
+    }
+
+    @Test(description = "System shows message when user enters wrong password several times")
+    public void tc05_SystemShowsMessageWhenUserEntersWrongPasswordSeveralTimes() {
+        LogHelper.info("Click login tab");
+        loginPage.clickLoginTab();
+
+        LogHelper.info("Enter valid data into Username textbox except Password textbox and click login button. Repeat 3 times");
+        loginPage.loginMultipleTimes(4, Constant.USERNAME, "");
+
+        LogHelper.info("Get error message");
+        String actual = loginPage.getErrorMessage();
+
+        LogHelper.info("Verify that system shows message when user enters wrong password several times");
+        Assert.assertEquals(actual, errorMsg, "An error message is not displayed as expected result");
     }
 }
