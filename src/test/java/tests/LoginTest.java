@@ -25,7 +25,7 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Get welcome message");
         String actual = loginPage.getWelcomeMessage();
 
-        LogHelper.info("Verify that user can log into Railway with valid username and password");
+        LogHelper.info("Verify that user can login into Railway with valid username and password");
         Assert.assertEquals(actual, "Welcome to Safe Railway", "A welcome message is not displayed as expected result");
     }
 
@@ -34,8 +34,7 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
-        LogHelper.info("Doesn't type any words into Username textbox but enter valid information into Password textbox" +
-                " and click Login button");
+        LogHelper.info("Login with empty username and click Login button");
         loginPage.login("", Constant.PASSWORD);
 
         LogHelper.info("Get error message");
@@ -56,7 +55,7 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Get error message");
         String actual = loginPage.getErrorMessage();
 
-        LogHelper.info("Verify that user cannot log into Railway with invalid password");
+        LogHelper.info("Verify that user cannot login into Railway with invalid password");
         Assert.assertEquals(actual, "Invalid username or password. Please try again.",
                 "An error message is not displayed as expected result");
     }
@@ -65,7 +64,7 @@ public class LoginTest extends BaseTest {
     public void tc04_UserIsRedirectedToBookPageAfterLoggingIn() {
         BookTicketPage bookTicketPage = new BookTicketPage();
 
-        LogHelper.info("Click Book ticket tab");
+        LogHelper.info("Click book ticket tab");
         bookTicketPage.clickBookTicketTab();
 
         LogHelper.info("Login with valid account and click Login button");

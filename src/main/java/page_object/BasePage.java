@@ -5,7 +5,7 @@ import helper.ElementHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class BasePage extends DriverHelper {
+public class BasePage {
     //locator
     private By tabLogin = By.cssSelector("li a[href*='/Account/Login.cshtml']");
     private By tabRegister = By.cssSelector("li a[href='/Account/Register.cshtml']");
@@ -43,7 +43,6 @@ public class BasePage extends DriverHelper {
     private WebElement getTabContact() {
         return DriverHelper.getDriver().findElement(tabContact);
     }
-
 
     //method
     public void clickLoginTab() {
