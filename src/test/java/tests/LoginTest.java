@@ -104,6 +104,9 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Get value of boolean function to know Logout tab is displayed");
         boolean logoutTabAppearance = loginPage.isLogoutTabDisplayed();
 
+        LogHelper.info("Verify that Logout tab is displayed after logging in successfully.");
+        Assert.assertTrue(logoutTabAppearance, "Logout tab is not displayed as expected");
+
         LogHelper.info("Click contact tab");
         ContactPage contactPage = new ContactPage();
         contactPage.clickContactTab();
@@ -114,15 +117,12 @@ public class LoginTest extends BaseTest {
         LogHelper.info("Get value of boolean function to know Login tab is displayed");
         boolean loginTabAppearance = loginPage.isLoginTabDisplayed();
 
-        LogHelper.info("Verify that Logout tab is displayed after logging in successfully.");
-        Assert.assertTrue(logoutTabAppearance, "Logout tab is not displayed as expected");
+        LogHelper.info("Verify that Login tab is displayed after logging in successfully.");
+        Assert.assertTrue(loginTabAppearance, "Login tab is not displayed as expected");
 
         LogHelper.info("Get text of hyperlink in home page");
         String actual = homePage.getWelcomeContentAtTop();
         String expected = "Welcome to Safe Railway";
-
-        LogHelper.info("Verify that Login tab is displayed after logging in successfully.");
-        Assert.assertTrue(loginTabAppearance, "Login tab is not displayed as expected");
 
         LogHelper.info("Verify that User is redirected to Home page after logging out");
         Assert.assertEquals(actual, expected, "A welcome is not displayed as expected");
