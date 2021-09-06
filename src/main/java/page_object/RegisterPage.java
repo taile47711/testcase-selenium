@@ -1,6 +1,7 @@
 package page_object;
 
 import helper.DriverHelper;
+import helper.ElementHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -40,6 +41,7 @@ public class RegisterPage extends BasePage {
 
     //method
     public void register(String email, String password, String confirm, String pid) {
+        ElementHelper.scrollToElement(getBtnRegister());
         getTxtEmail().sendKeys(email);
         getTxtPassword().sendKeys(password);
         getTxtConfirmPassword().sendKeys(confirm);
