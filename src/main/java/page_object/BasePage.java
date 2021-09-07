@@ -10,11 +10,10 @@ public class BasePage extends DriverHelper {
     private By tabLogin = By.cssSelector("li a[href*='/Account/Login.cshtml']");
     private By tabRegister = By.cssSelector("li a[href='/Account/Register.cshtml']");
     private By tabBookTicket = By.cssSelector("li a[href='/Page/BookTicketPage.cshtml']");
-    private By tabTimetable = By.cssSelector("li a[href*='TrainTimeListPage.cshtml']");
-    private By tabTicketPrice = By.cssSelector("li a[href*='/Page/TrainPriceListPage.cshtml']");
     private By tabLogout = By.cssSelector("a[href$='Logout']");
     private By tabContact = By.cssSelector("a[href*='Contact']");
     private By tabChangePassword = By.cssSelector("li a[href='/Account/ChangePassword.cshtml']");
+    private By tabMyTicket = By.cssSelector("li a[href='/Page/ManageTicket.cshtml']");
 
     //element
     private WebElement getTabLogin() {
@@ -29,20 +28,16 @@ public class BasePage extends DriverHelper {
         return DriverHelper.getDriver().findElement(tabBookTicket);
     }
 
-    private WebElement getTabTimetable() {
-        return DriverHelper.getDriver().findElement(tabTimetable);
-    }
-
-    private WebElement getTabTicketPrice() {
-        return DriverHelper.getDriver().findElement(tabTicketPrice);
-    }
-
     private WebElement getTabLogout() {
         return DriverHelper.getDriver().findElement(tabLogout);
     }
 
     private WebElement getTabContact() {
         return DriverHelper.getDriver().findElement(tabContact);
+    }
+
+    private WebElement getTabMyTicket() {
+        return DriverHelper.getDriver().findElement(tabMyTicket);
     }
 
     private WebElement getTabChangePassword() {
@@ -62,14 +57,6 @@ public class BasePage extends DriverHelper {
         getTabBookTicket().click();
     }
 
-    public void clickTimetableTab() {
-        getTabTimetable().click();
-    }
-
-    public void clickTicketPriceTab() {
-        getTabTicketPrice().click();
-    }
-
     public void clickLogoutTab() {
         getTabLogout().click();
     }
@@ -80,6 +67,10 @@ public class BasePage extends DriverHelper {
 
     public void clickChangePasswordTab() {
         getTabChangePassword().click();
+    }
+
+    public void clickTabMyTicket() {
+        getTabMyTicket().click();
     }
 
     public boolean isLoginTabDisplayed() {
