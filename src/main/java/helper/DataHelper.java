@@ -2,6 +2,10 @@ package helper;
 
 import com.github.javafaker.Faker;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class DataHelper {
     private static final Faker faker = new Faker();
 
@@ -15,5 +19,13 @@ public class DataHelper {
 
     public static String getRandomNumberic(int number) {
         return faker.number().digits(number);
+    }
+
+    public static String getDateFromToday(int numberOfDays, String dateFormat) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
+        Date resultDate = calendar.getTime();
+        return simpleDateFormat.format(resultDate);
     }
 }
