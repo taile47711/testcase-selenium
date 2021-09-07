@@ -16,7 +16,6 @@ public class BasePage extends DriverHelper {
     private By tabContact = By.cssSelector("a[href*='Contact']");
     private By tabChangePassword = By.cssSelector("li a[href='/Account/ChangePassword.cshtml']");
 
-
     //element
     private WebElement getTabLogin() {
         return DriverHelper.getDriver().findElement(tabLogin);
@@ -49,7 +48,6 @@ public class BasePage extends DriverHelper {
     private WebElement getTabChangePassword() {
         return DriverHelper.getDriver().findElement(tabChangePassword);
     }
-
 
     //method
     public void clickLoginTab() {
