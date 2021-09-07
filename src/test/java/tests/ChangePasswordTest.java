@@ -22,8 +22,10 @@ public class ChangePasswordTest extends BaseTest {
         LogHelper.info("Click change password tab");
         changePasswordPage.clickChangePasswordTab();
 
-        LogHelper.info("Enter valid value into all fields");
-        changePasswordPage.changePassword(Constant.PASSWORD, "123456789", "987654321");
+        LogHelper.info("Change password with new password and confirm password are different");
+        String newPassword = "a123:\"/{}!@$\\";
+        String confirmPassword = "b456:\"/{}!@$\\";
+        changePasswordPage.changePassword(Constant.PASSWORD, newPassword, confirmPassword);
 
         LogHelper.info("Get error message");
         String actual = changePasswordPage.getErrorMessage();
