@@ -27,7 +27,7 @@ public class ChangePasswordTest extends BaseTest {
         String confirmPassword = "b456:\"/{}!@$\\";
         changePasswordPage.changePassword(Constant.PASSWORD, newPassword, confirmPassword);
 
-        LogHelper.info("Get error message");
+        LogHelper.info("Get error message after click Change Password button in change password page");
         String actual = changePasswordPage.getErrorMessage();
         String expected = "Password change failed. Please correct the errors and try again.";
 
