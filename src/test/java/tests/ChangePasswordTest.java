@@ -33,6 +33,6 @@ public class ChangePasswordTest extends BaseTest {
 
         LogHelper.info("Verify that user can't change password when New Password and Confirm Password are different");
         Assert.assertEquals(actualErrorMessage, expectedErrorMessage,
-                "An error message is not displayed like expected result");
+                "An error message is not displayed as expected result");
     }
 }
