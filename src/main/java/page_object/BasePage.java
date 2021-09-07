@@ -14,6 +14,7 @@ public class BasePage {
     private By tabTicketPrice = By.cssSelector("li a[href*='/Page/TrainPriceListPage.cshtml']");
     private By tabLogout = By.cssSelector("a[href$='Logout']");
     private By tabContact = By.cssSelector("a[href*='Contact']");
+    private By tabChangePassword = By.cssSelector("li a[href='/Account/ChangePassword.cshtml']");
 
     //element
     private WebElement getTabLogin() {
@@ -44,6 +45,10 @@ public class BasePage {
         return DriverHelper.getDriver().findElement(tabContact);
     }
 
+    private WebElement getTabChangePassword() {
+        return DriverHelper.getDriver().findElement(tabChangePassword);
+    }
+
     //method
     public void clickLoginTab() {
         getTabLogin().click();
@@ -71,6 +76,10 @@ public class BasePage {
 
     public void clickContactTab() {
         getTabContact().click();
+    }
+
+    public void clickChangePasswordTab() {
+        getTabChangePassword().click();
     }
 
     public boolean isLoginTabDisplayed() {
