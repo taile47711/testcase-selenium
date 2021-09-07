@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 public class ChangePasswordPage extends BasePage {
     //locator
     private final By txtCurrentPassword = By.id("currentPassword");
-    private final By txtNewPassowrd = By.id("newPassword");
+    private final By txtNewPassword = By.id("newPassword");
     private final By txtConfirmPassword = By.id("confirmPassword");
-    private final By btnChangePassowrd = By.cssSelector("input[type='submit']");
+    private final By btnChangePassword = By.cssSelector("input[type='submit']");
     private final By lblErrorMessage = By.cssSelector("fieldset p[class='message error']");
 
     //element
@@ -18,7 +18,7 @@ public class ChangePasswordPage extends BasePage {
     }
 
     private WebElement getTxtNewPassword() {
-        return DriverHelper.getDriver().findElement(txtNewPassowrd);
+        return DriverHelper.getDriver().findElement(txtNewPassword);
     }
 
     private WebElement getTxtConfirmPassword() {
@@ -26,7 +26,7 @@ public class ChangePasswordPage extends BasePage {
     }
 
     private WebElement getBtnChangePassword() {
-        return DriverHelper.getDriver().findElement(btnChangePassowrd);
+        return DriverHelper.getDriver().findElement(btnChangePassword);
     }
 
     private WebElement getLblErrorMessage() {
