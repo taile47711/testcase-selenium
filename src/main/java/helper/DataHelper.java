@@ -24,7 +24,7 @@ public class DataHelper {
     public static String getDateFromToday(int numberOfDays, String dateFormat) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
+        calendar.add(Calendar.DAY_OF_MONTH, numberOfDays);
         Date resultDate = calendar.getTime();
         return simpleDateFormat.format(resultDate);
     }

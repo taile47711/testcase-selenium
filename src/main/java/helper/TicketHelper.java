@@ -1,5 +1,8 @@
 package helper;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+
 public class TicketHelper {
     private String departDate;
     private String departFrom;
@@ -47,5 +50,13 @@ public class TicketHelper {
 
     public void setTicketAmount(String ticketAmount) {
         this.ticketAmount = ticketAmount;
+    }
+
+    public static boolean isTicketDisplayed(By selector) {
+        try {
+            return DriverHelper.getDriver().findElement(selector).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
     }
 }

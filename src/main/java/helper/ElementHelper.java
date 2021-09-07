@@ -17,12 +17,4 @@ public class ElementHelper {
             return false;
         }
     }
-
-    public static boolean isTicketDisplayed(By selector) {
-        try {
-            return DriverHelper.getDriver().findElement(selector).isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 }

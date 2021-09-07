@@ -26,7 +26,7 @@ public class MyTicketPage extends BasePage {
     }
 
     public boolean isTicketDisplay(TicketHelper ticketHelper){
-        return ElementHelper.isTicketDisplayed(By.xpath(String.format(btnCancelTicket,
+        return TicketHelper.isTicketDisplayed(By.xpath(String.format(btnCancelTicket,
                 ticketHelper.getDepartDate(),
                 ticketHelper.getDepartFrom(),
                 ticketHelper.getArriveAt(),
