@@ -32,6 +32,6 @@ public class ChangePasswordTest extends BaseTest {
         String expectedMessage = "Password change failed. Please correct the errors and try again.";
 
         LogHelper.info("Verify that user can't change password when New Password and Confirm Password are different");
-        Assert.assertEquals(actualMessage, expectedMessage, "An error message is not display like expected result");
+        Assert.assertEquals(actualMessage, expectedMessage, "An error message is not displayed like expected result");
     }
 }
