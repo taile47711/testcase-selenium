@@ -28,10 +28,10 @@ public class ChangePasswordTest extends BaseTest {
         changePasswordPage.changePassword(Constant.PASSWORD, newPassword, confirmPassword);
 
         LogHelper.info("Get error message after click Change Password button in change password page");
-        String actual = changePasswordPage.getErrorMessage();
-        String expected = "Password change failed. Please correct the errors and try again.";
+        String actualMessage = changePasswordPage.getErrorMessage();
+        String expectedMessage = "Password change failed. Please correct the errors and try again.";
 
         LogHelper.info("Verify that user can't change password when New Password and Confirm Password are different");
-        Assert.assertEquals(actual, expected, "An error message is not display like expected result");
+        Assert.assertEquals(actualMessage, expectedMessage, "An error message is not display like expected result");
     }
 }
