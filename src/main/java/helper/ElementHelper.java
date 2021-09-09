@@ -1,5 +1,6 @@
 package helper;
 
+import com.logigear.driver.DriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -10,10 +11,10 @@ public class ElementHelper {
         ((JavascriptExecutor) DriverHelper.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
-    public static boolean isElementDisplayed(WebElement webElement) {
-        try {
-            return webElement.isDisplayed();
-        } catch (NoSuchElementException e) {
+    public static boolean isDisplayed(By selector){
+        try{
+            return DriverUtils.getWebDriver().findElement(selector).isDisplayed();
+        }catch (NoSuchElementException e){
             return false;
         }
     }

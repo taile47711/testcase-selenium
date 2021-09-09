@@ -8,15 +8,16 @@ import org.testng.annotations.Test;
 import page_object.BookTicketPage;
 import page_object.LoginPage;
 import page_object.MyTicketPage;
-import helper.TicketHelper;
+import common.Ticket;
 
 public class MyTicketTest extends BaseTest {
     MyTicketPage myTicketPage = new MyTicketPage();
     BookTicketPage bookTicketPage = new BookTicketPage();
     LoginPage loginPage = new LoginPage();
+    Ticket ticket = new Ticket();
 
     @Test(description = "User can cancel ticket")
-    public void tc16_UserCanCancelTicket(){
+    public void tc16_UserCanCancelTicket() {
         LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
@@ -27,25 +28,21 @@ public class MyTicketTest extends BaseTest {
         bookTicketPage.clickBookTicketTab();
 
         LogHelper.info("Input valid data");
-        String departDate = DataHelper.getDateFromToday(4,"M/d/yyyy");
-        TicketHelper ticketHelper = new TicketHelper();
-        ticketHelper.setDepartDate(departDate);
-        ticketHelper.setDepartFrom("Sài Gòn");
-        ticketHelper.setArriveAt("Huế");
-        ticketHelper.setSeat("Soft bed with air conditioner");
-        ticketHelper.setTicketAmount("1");
-        bookTicketPage.bookTicket(ticketHelper);
+        String departDate = DataHelper.getDateFromToday(4, "M/d/yyyy");
+        ticket.setDepartDate(departDate);
+        ticket.setDepartFrom("Đà Nẵng");
+        ticket.setArriveAt("Huế");
+        ticket.setSeat("Soft bed with air conditioner");
+        ticket.setTicketAmount("1");
+        bookTicketPage.bookTicket(ticket);
 
         LogHelper.info("click my ticket page");
         myTicketPage.clickTabMyTicket();
 
         LogHelper.info("Cancel ticket");
-        myTicketPage.clickCancelButton(ticketHelper);
-
-        LogHelper.info("Click Ok in alert");
-        myTicketPage.clickOKButton();
+        myTicketPage.clickCancelTicket(ticket.getDepartFrom(), ticket.getArriveAt(), ticket.getDepartDate(), ticket.getTicketAmount());
 
         LogHelper.info("Verify that user can cancel the ticket");
-        Assert.assertFalse(myTicketPage.isTicketDisplay(ticketHelper),"User can't cancel the ticket");
+        Assert.assertFalse(myTicketPage.isCanCelButtonDisplayed(ticket), "User can't cancel the ticket");
     }
 }

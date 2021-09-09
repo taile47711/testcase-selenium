@@ -2,57 +2,38 @@ package page_object;
 
 import helper.DriverHelper;
 import helper.ElementHelper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import com.logigear.control.common.imp.Button;
+import com.logigear.control.common.imp.Label;
+import com.logigear.control.common.imp.TextBox;
 
 public class LoginPage extends BasePage {
     //locator
-    private final By txtUsername = By.id("username");
-    private final By txtPassword = By.id("password");
-    private final By btnLogin = By.cssSelector("input[type='submit']");
-    private final By lblWelcomeMessage = By.cssSelector("div#content>h1[align='center']");
-    private final By lblErrorMessage = By.cssSelector("div#content>p[class='message error LoginForm']");
-
-    //element
-    private WebElement getTxtUsername() {
-        return DriverHelper.getDriver().findElement(txtUsername);
-    }
-
-    private WebElement getTxtPassword() {
-        return DriverHelper.getDriver().findElement(txtPassword);
-    }
-
-    private WebElement getBtnLogin() {
-        return DriverHelper.getDriver().findElement(btnLogin);
-    }
-
-    private WebElement getLblWelcomeMessage() {
-        return DriverHelper.getDriver().findElement(lblWelcomeMessage);
-    }
-
-    private WebElement getLblErrorMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorMessage);
-    }
+    private final TextBox txtUsername = new TextBox("id=username");
+    private final TextBox txtPassword = new TextBox("id=password");
+    private final Button btnLogin = new Button("css=input[value='Login']");
+    private final Label lblWelcomeMessage = new Label("css=div[class='account'] > strong");
+    private final Label lblErrorMessage = new Label("css=p[class='message error LoginForm']");
 
     //method
     public void login(String username, String password) {
-        ElementHelper.scrollToElement(getBtnLogin());
-        getTxtUsername().sendKeys(username);
-        getTxtPassword().sendKeys(password);
-        getBtnLogin().click();
+        txtUsername.scrollToView();
+        txtUsername.enter(username);
+        txtPassword.enter(password);
+        btnLogin.click();
     }
 
     public String getWelcomeMessage() {
-        return this.getLblWelcomeMessage().getText();
+        return lblWelcomeMessage.getText();
     }
 
     public String getErrorMessage() {
-        return this.getLblErrorMessage().getText();
+        return lblErrorMessage.getText();
     }
 
     public void loginMultipleTimes(int numberOfTimes, String username, String password) {
         for (int i = 0; i < numberOfTimes; i++) {
-            getTxtUsername().clear();
+            txtUsername.clear();
             login(username, password);
         }
     }

@@ -1,5 +1,6 @@
 package helper;
 
+import com.logigear.driver.DriverUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,6 +23,6 @@ public class DriverHelper {
     }
 
     public static WebDriver getDriver() {
-        return driver;
+        return DriverUtils.getWebDriver();
     }
 }
