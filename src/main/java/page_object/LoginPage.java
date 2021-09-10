@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
     private final TextBox txtUsername = new TextBox("id=username");
     private final TextBox txtPassword = new TextBox("id=password");
     private final Button btnLogin = new Button("css=input[value='Login']");
-    private final Label lblWelcomeMessage = new Label("css=div[class='account'] > strong");
+    private final Label lblWelcomeMessage = new Label("css=div[id='content'] h1[align='center']");
     private final Label lblErrorMessage = new Label("css=p[class='message error LoginForm']");
 
     //method

@@ -1,4 +1,5 @@
 <suite name="Test web Railway" verbose="1">
+    <parameter name="Browser" value="chrome.local"/>
     <test name="FirstTest">
         <packages>
             <package name="tests"/>

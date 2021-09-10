@@ -15,7 +15,7 @@ public class LoginTest extends BaseTest {
     String errorMsg = "There was a problem with your login and/or errors exist in your form.";
 
     @Test(description = "User can login into Railway with valid username and password")
-    public void tc001_UserCanLoginIntoRailwayWithValidUsernameAndPassword() {
+    public void tc01_UserCanLoginIntoRailwayWithValidUsernameAndPassword() {
         LogHelper.info("Click login tab");
         loginPage.clickLoginTab();
 
@@ -121,7 +121,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginTabAppearance, "Login tab is not displayed as expected");
 
         LogHelper.info("Get welcome content at the top of home page");
-        String actual = homePage.getWelcomeContentAtTop();
+        String actual = homePage.getWelcomeMessage();
         String expected = "Welcome to Safe Railway";
 
         LogHelper.info("Verify that User is redirected to Home page after logging out");

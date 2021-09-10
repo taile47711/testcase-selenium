@@ -43,10 +43,10 @@ public class BasePage extends DriverHelper {
     }
 
     public boolean isLoginTabDisplayed() {
-        return loginTab.isExist();
+        return loginTab.isVisible();
     }
 
     public boolean isLogoutTabDisplayed() {
-        return logoutTab.isExist();
+        return logoutTab.isVisible();
     }
 }
