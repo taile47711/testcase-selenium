@@ -9,14 +9,14 @@ public class MyTicketPage extends BasePage {
     private final Label btnCancelTicket = new Label("//table[@class='MyTable']/tbody//td[text()='%s']/following-sibling::td[text()='%s']/following-sibling::td[text()='%s']/following-sibling::td[text()='%s']/following-sibling::td/input[@value='Cancel']");
 
     //method
-    public void clickCancelTicket(String departStation, String arriveStation, String departDate, String ticketAmount) {
-        btnCancelTicket.setDynamicValue(departStation, arriveStation, departDate, ticketAmount);
+    public void clickCancelTicket(Ticket ticket) {
+        btnCancelTicket.setDynamicValue(ticket.getDepartFrom(), ticket.getArriveAt(), ticket.getDepartDate(), ticket.getTicketAmount());
         btnCancelTicket.click();
         DriverUtils.acceptAlert();
     }
 
     public boolean isCanCelButtonDisplayed(Ticket ticket) {
         btnCancelTicket.setDynamicValue(ticket.getDepartFrom(), ticket.getArriveAt(), ticket.getDepartDate(), ticket.getTicketAmount());
-        return btnCancelTicket.isVisible(5);
+        return btnCancelTicket.isVisible(3);
     }
 }

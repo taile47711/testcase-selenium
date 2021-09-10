@@ -40,7 +40,7 @@ public class MyTicketTest extends BaseTest {
         myTicketPage.clickTabMyTicket();
 
         LogHelper.info("Cancel ticket");
-        myTicketPage.clickCancelTicket(ticket.getDepartFrom(), ticket.getArriveAt(), ticket.getDepartDate(), ticket.getTicketAmount());
+        myTicketPage.clickCancelTicket(ticket);
 
         LogHelper.info("Verify that user can cancel the ticket");
         Assert.assertFalse(myTicketPage.isCanCelButtonDisplayed(ticket), "User can't cancel the ticket");
