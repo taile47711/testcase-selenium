@@ -1,47 +1,25 @@
 package page_object;
 
-import helper.DriverHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
+import com.logigear.control.common.imp.Button;
+import com.logigear.control.common.imp.Label;
+import com.logigear.control.common.imp.TextBox;
 public class ChangePasswordPage extends BasePage {
     //locator
-    private final By txtCurrentPassword = By.id("currentPassword");
-    private final By txtNewPassword = By.id("newPassword");
-    private final By txtConfirmPassword = By.id("confirmPassword");
-    private final By btnChangePassword = By.cssSelector("input[type='submit']");
-    private final By lblErrorMessage = By.cssSelector("fieldset p[class='message error']");
-
-    //element
-    private WebElement getTxtCurrentPassword() {
-        return DriverHelper.getDriver().findElement(txtCurrentPassword);
-    }
-
-    private WebElement getTxtNewPassword() {
-        return DriverHelper.getDriver().findElement(txtNewPassword);
-    }
-
-    private WebElement getTxtConfirmPassword() {
-        return DriverHelper.getDriver().findElement(txtConfirmPassword);
-    }
-
-    private WebElement getBtnChangePassword() {
-        return DriverHelper.getDriver().findElement(btnChangePassword);
-    }
-
-    private WebElement getLblErrorMessage() {
-        return DriverHelper.getDriver().findElement(lblErrorMessage);
-    }
+    private final TextBox txtCurrentPassword = new TextBox("id=currentPassword");
+    private final TextBox txtNewPassword = new TextBox("id=newPassword");
+    private final TextBox txtConfirmPassword = new TextBox("id=confirmPassword");
+    private final Button btnChangePassword = new Button("css=input[type='submit']");
+    private final Label lblErrorMessage = new Label("css=fieldset p[class='message error']");
 
     //method
     public void changePassword(String currentPassword, String newPassword, String confirmPassword) {
-        getTxtCurrentPassword().sendKeys(currentPassword);
-        getTxtNewPassword().sendKeys(newPassword);
-        getTxtConfirmPassword().sendKeys(confirmPassword);
-        getBtnChangePassword().click();
+        txtCurrentPassword.enter(currentPassword);
+        txtNewPassword.enter(newPassword);
+        txtConfirmPassword.enter(confirmPassword);
+        btnChangePassword.click();
     }
 
     public String getErrorMessage() {
-        return this.getLblErrorMessage().getText();
+        return lblErrorMessage.getText();
     }
 }
